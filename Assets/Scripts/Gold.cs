@@ -6,7 +6,8 @@ public class Gold : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            Debug.Log("Gold'a Çarptı");
+            Debug.Log("Gold Toplandi.");
+            GoldCounterText.goldCounter++;
             transform.DOKill();
             Destroy(gameObject);
         }

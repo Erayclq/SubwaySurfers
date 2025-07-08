@@ -1,16 +1,16 @@
 using UnityEngine;
 using DG.Tweening;
 using System;
-using UnityEngine.InputSystem;
-using UnityEngine.UIElements;
 
 public class PlayerMover : MonoBehaviour
 {
+    //---------------------------------------------------------------------------------
+    // İleri Gitme ayarları
+    //---------------------------------------------------------------------------------
     [Header("XZ Plane Movements")]
     [SerializeField] float forwardSpeed = 5f;
     [SerializeField] float slideTime = 0.5f;
     [SerializeField] float laneWidth = 2f;
-
     //---------------------------------------------------------------------------------
     // Zıplama ayarları
     //---------------------------------------------------------------------------------
@@ -20,13 +20,11 @@ public class PlayerMover : MonoBehaviour
     [SerializeField] int numberOfJumps = 1;
     [SerializeField] float duration = 0.5f;
     //---------------------------------------------------------------------------------
-
-    int currentLane = 1;
+    private int currentLane = 1;
     private Tween slideTween;
     private Tween jumpTween;
     void Update()
     {
-
         if (Input.GetKeyDown(KeyCode.A))
         {
             SlideHorizontal(-1);
@@ -40,20 +38,23 @@ public class PlayerMover : MonoBehaviour
             jumper();
         }
     }
-
-    private void jumper()
+    void FixedUpdate()// Ileri harket.
     {
-            jumpTween?.Kill();
+        transform.Translate(Vector3.forward * forwardSpeed * Time.deltaTime);
+    }
+    private void jumper()//Zıplamayı sağlar
+    {
+        jumpTween?.Kill();
 
-            // Hedef pozisyon = şu anki + ileri yönde forwardDistance
-            Vector3 endPos = transform.position + transform.forward * jumpDistance;
+        // Hedef pozisyon = şu anki + ileri yönde forwardDistance
+        Vector3 endPos = transform.position + transform.forward * jumpDistance;
 
-            // DOJump: (hedef, zıplama yüksekliği, zıplama sayısı, toplam süre)
-            jumpTween = transform
-                .DOJump(endPos, jumpPower, numberOfJumps, duration)
-                .SetEase(Ease.Linear);    }
-
-    void SlideHorizontal(int direction)
+        // DOJump: (hedef, zıplama yüksekliği, zıplama sayısı, toplam süre)
+        jumpTween = transform
+            .DOJump(endPos, jumpPower, numberOfJumps, duration)
+            .SetEase(Ease.Linear);
+    }
+    void SlideHorizontal(int direction)//Sağ ve Sola gitme
     {
         int targetLane = Math.Clamp(direction + currentLane, 0, 2);
         if (targetLane == currentLane) return; // sınırları aşma.
@@ -65,11 +66,5 @@ public class PlayerMover : MonoBehaviour
         slideTween?.Kill();
         // Sadece X ekseninde kay
         slideTween = transform.DOMoveX(targetX, slideTime).SetEase(Ease.InOutQuad);
-    }
-
-    void FixedUpdate()
-    {
-        // Sürekli ileri
-        transform.Translate(Vector3.forward * forwardSpeed * Time.deltaTime);
     }
 }
