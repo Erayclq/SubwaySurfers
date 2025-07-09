@@ -44,15 +44,16 @@ public class PlayerMover : MonoBehaviour
     }
     private void jumper()//Zıplamayı sağlar
     {
-        jumpTween?.Kill();
-
-        // Hedef pozisyon = şu anki + ileri yönde forwardDistance
-        Vector3 endPos = transform.position + transform.forward * jumpDistance;
-
-        // DOJump: (hedef, zıplama yüksekliği, zıplama sayısı, toplam süre)
-        jumpTween = transform
-            .DOJump(endPos, jumpPower, numberOfJumps, duration)
-            .SetEase(Ease.Linear);
+        if (transform.position.y == 0.5) // sadece yerdeyken zıplayabilir player
+        {
+            jumpTween?.Kill();
+            // Hedef pozisyon = şu anki + ileri yönde forwardDistance
+            Vector3 endPos = transform.position + transform.forward * jumpDistance;
+            // DOJump: (hedef, zıplama yüksekliği, zıplama sayısı, toplam süre)
+            jumpTween = transform
+                .DOJump(endPos, jumpPower, numberOfJumps, duration)
+                .SetEase(Ease.Linear);
+        }
     }
     void SlideHorizontal(int direction)//Sağ ve Sola gitme
     {
