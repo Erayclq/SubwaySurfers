@@ -1,20 +1,20 @@
 using UnityEngine;
 
-public class SpawnObstacles : MonoBehaviour
+public class GoldSpawner : MonoBehaviour
 {
     [Header("Obstacle Prefabs")]
     public GameObject[] obstaclePrefabs; //Spawn edilecek obstacle prefab'ları
 
     [Header("Spawn Timing")]
-    public float timeBetweenSpawn = 2f; // İki spawn arasında bekleme süresi
+    public float timeBetweenSpawn = 1.5f; // İki spawn arasında bekleme süresi
     private float spawnTimer;
 
     [Header("Spawn Area")]
-    public float minX = -1f; //X ekseninde minimum
-    public float maxX = 1f; //X ekseninde maksimum offset
+    public float minX = -1.5f; //X ekseninde minimum
+    public float maxX = 1.5f; //X ekseninde maksimum offset
     public float minZ = 5f; //Z ekseninde minimum 
     public float maxZ = 15f; //Z ekseninde maksimum
-    public float yOffset = 0f; //Y ekseninde yükseklik
+    public float yOffset = 0.5f; //Y ekseninde yükseklik
 
     void Start()
     {
