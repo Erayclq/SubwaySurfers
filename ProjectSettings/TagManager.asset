@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Gold
   - Engel
+  - Border
   layers:
   - Default
   - TransparentFX

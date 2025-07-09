@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1723830909378980830}
   - component: {fileID: 3379161338119711872}
   - component: {fileID: 2916877734962420626}
+  - component: {fileID: 820607437517929783}
   m_Layer: 0
   m_Name: BrokenTree 1
   m_TagString: Engel
@@ -138,3 +139,15 @@ CapsuleCollider:
   m_Height: 7.3486724
   m_Direction: 1
   m_Center: {x: -0.000000049900333, y: 3.6743762, z: -0.000000059604645}
+--- !u!114 &820607437517929783
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7014065859298107164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8414b61f78716154dbcbb25b768c2064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

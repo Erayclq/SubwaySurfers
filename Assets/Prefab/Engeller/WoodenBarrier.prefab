@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 8933646686828885762}
   - component: {fileID: 8551156296010263129}
   - component: {fileID: 5539161787181178674}
+  - component: {fileID: 5320125408790577742}
+  - component: {fileID: 6433665382753670509}
   m_Layer: 0
   m_Name: WoodenBarrier
   m_TagString: Engel
@@ -109,3 +111,42 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: -8430925605481246473, guid: c15c8257712a538499f0877d29e23f41, type: 3}
+--- !u!114 &5320125408790577742
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7443821651958483826}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8414b61f78716154dbcbb25b768c2064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!54 &6433665382753670509
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7443821651958483826}
+  serializedVersion: 4
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_CenterOfMass: {x: 0, y: 0, z: 0}
+  m_InertiaTensor: {x: 1, y: 1, z: 1}
+  m_InertiaRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ImplicitCom: 1
+  m_ImplicitTensor: 1
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 126
+  m_CollisionDetection: 0

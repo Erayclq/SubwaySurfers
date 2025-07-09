@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 3408009069007242501}
   - component: {fileID: 4195264568015482996}
   - component: {fileID: 6453791343977008018}
+  - component: {fileID: -4508793255613122472}
   m_Layer: 0
   m_Name: Props_Traffic Signal_big
   m_TagString: Untagged
@@ -114,3 +115,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 3
+--- !u!114 &-4508793255613122472
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 914606191586216806}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8414b61f78716154dbcbb25b768c2064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

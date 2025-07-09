@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3521443948983214270}
   - component: {fileID: 8470439817351282436}
   - component: {fileID: 3722314413366252796}
+  - component: {fileID: -2649738310812997910}
   m_Layer: 0
   m_Name: SandBags
   m_TagString: Engel
@@ -137,3 +138,15 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &-2649738310812997910
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2145458259467408189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8414b61f78716154dbcbb25b768c2064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3095269963406734808}
   - component: {fileID: 8318168302500970332}
   - component: {fileID: 7010220397842251659}
+  - component: {fileID: -1353325860943668922}
   m_Layer: 0
   m_Name: Cone
   m_TagString: Engel
@@ -138,3 +139,15 @@ CapsuleCollider:
   m_Height: 1.34
   m_Direction: 1
   m_Center: {x: 0, y: 0.32, z: -0.000000029802319}
+--- !u!114 &-1353325860943668922
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1877896840970869269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8414b61f78716154dbcbb25b768c2064, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
