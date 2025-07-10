@@ -1,4 +1,4 @@
-    using UnityEngine;
+using UnityEngine;
 
 public class GoldSpawner : MonoBehaviour
 {
@@ -11,7 +11,7 @@ public class GoldSpawner : MonoBehaviour
 
     [Header("Spawn Area")]
     public float minX = -1.5f, maxX = 1.5f;
-    public float minZ = 5f,     maxZ = 15f;
+    public float minZ = 5f, maxZ = 15f;
     public float yOffset = 0.5f;
 
     void Start()
@@ -31,12 +31,16 @@ public class GoldSpawner : MonoBehaviour
 
     void SpawnGold()
     {
-        // Rastgele pozisyon
-        float x = Random.Range(minX, maxX);
-        float z = Random.Range(minZ, maxZ);
-        Vector3 spawnPos = transform.position + new Vector3(x, yOffset, z);
+        //k oordinatlarında X değeri
+        float worldX = Random.Range(minX, maxX);
+        // Spawner’ın Z pozisyonuna eklenen Z değeri
+        float worldZ = transform.position.z + Random.Range(minZ, maxZ);
 
-        // Instantiate yerine pool’dan aldı....
+        // 3) Spawn pozisyonunu oluştur
+        Vector3 spawnPos = new Vector3(worldX, yOffset, worldZ);
+
+        // 4) Havuzdan nesneyi al
         goldPool.getFromPool(spawnPos, Quaternion.identity);
     }
+
 }
