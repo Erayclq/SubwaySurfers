@@ -1,24 +1,21 @@
-using UnityEngine;
+    using UnityEngine;
 
 public class GoldSpawner : MonoBehaviour
 {
-    [Header("Obstacle Prefabs")]
-    public GameObject[] obstaclePrefabs; //Spawn edilecek obstacle prefab'ları
+    [Header("Pool Referansı")]
+    public ObjectPool goldPool;           // Inspector’da GoldPool objesini ata
 
     [Header("Spawn Timing")]
-    public float timeBetweenSpawn = 1.5f; // İki spawn arasında bekleme süresi
+    public float timeBetweenSpawn = 1.5f;
     private float spawnTimer;
 
     [Header("Spawn Area")]
-    public float minX = -1.5f; //X ekseninde minimum
-    public float maxX = 1.5f; //X ekseninde maksimum offset
-    public float minZ = 5f; //Z ekseninde minimum 
-    public float maxZ = 15f; //Z ekseninde maksimum
-    public float yOffset = 0.5f; //Y ekseninde yükseklik
+    public float minX = -1.5f, maxX = 1.5f;
+    public float minZ = 5f,     maxZ = 15f;
+    public float yOffset = 0.5f;
 
     void Start()
     {
-        // İlk spawn'u zamanlamak için
         spawnTimer = timeBetweenSpawn;
     }
 
@@ -27,23 +24,19 @@ public class GoldSpawner : MonoBehaviour
         spawnTimer -= Time.deltaTime;
         if (spawnTimer <= 0f)
         {
-            SpawnObstacle();
+            SpawnGold();
             spawnTimer = timeBetweenSpawn;
         }
     }
 
-    void SpawnObstacle()
+    void SpawnGold()
     {
-        // Rastgele prefab seç
-        GameObject prefab = obstaclePrefabs[Random.Range(0, obstaclePrefabs.Length)];
-
-        // X,Z için rastgele koordinat
+        // Rastgele pozisyon
         float x = Random.Range(minX, maxX);
         float z = Random.Range(minZ, maxZ);
+        Vector3 spawnPos = transform.position + new Vector3(x, yOffset, z);
 
-        Vector3 spawnPos = transform.position
-                         + new Vector3(x, yOffset, z);
-
-        Instantiate(prefab, spawnPos, prefab.transform.rotation);
+        // Instantiate yerine pool’dan aldı....
+        goldPool.getFromPool(spawnPos, Quaternion.identity);
     }
 }

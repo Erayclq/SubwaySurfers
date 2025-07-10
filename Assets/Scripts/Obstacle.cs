@@ -13,7 +13,6 @@ public class Obstacle : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if (other.tag == "Border")
-
         {
             gameObject.SetActive(false);
         }
@@ -21,6 +20,6 @@ public class Obstacle : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
-            Destroy(collision.gameObject);
+            collision.gameObject.SetActive(false);
     }
 }

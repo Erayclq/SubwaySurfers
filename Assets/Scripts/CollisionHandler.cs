@@ -15,5 +15,5 @@ public class CollisionHandler : MonoBehaviour
         {
             rend.material.color = Color.red;
         }
-    }
+    } 
 }

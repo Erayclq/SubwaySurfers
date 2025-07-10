@@ -303,8 +303,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -756.1, y: -67}
-  m_SizeDelta: {x: 87.9616, y: 100}
+  m_AnchoredPosition: {x: -737.3, y: -67}
+  m_SizeDelta: {x: 140.5, y: 100}
   m_Pivot: {x: 0.49999973, y: 0.50000054}
 --- !u!1 &88430803
 GameObject:
@@ -1194,9 +1194,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d7fe3e9cd57c9f4391668e7471d6eee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  obstaclePrefabs:
-  - {fileID: 4797042673153310671, guid: 0ffb81d32e4992b4d85f759821ebe60d, type: 3}
-  timeBetweenSpawn: 0.9
+  goldPool: {fileID: 1134867299}
+  timeBetweenSpawn: 1.5
   minX: -1.5
   maxX: 1.5
   minZ: 5
@@ -1683,6 +1682,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 715507645}
   m_CullTransparentMesh: 1
+--- !u!1 &773818647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 773818649}
+  - component: {fileID: 773818648}
+  m_Layer: 0
+  m_Name: ObstaclePool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &773818648
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773818647}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ce51602e3b402448e6f305ff899a00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolPrefab: {fileID: 1877896840970869269, guid: b905e2f50aefeff4d941fca4537d03f6, type: 3}
+  initialPoolSize: 5
+--- !u!4 &773818649
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 773818647}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &832575517
 GameObject:
   m_ObjectHideFlags: 0
@@ -2007,6 +2052,52 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1094153703}
   m_CullTransparentMesh: 1
+--- !u!1 &1134867298
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1134867300}
+  - component: {fileID: 1134867299}
+  m_Layer: 0
+  m_Name: GoldPool
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1134867299
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134867298}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c6ce51602e3b402448e6f305ff899a00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  poolPrefab: {fileID: 4797042673153310671, guid: 0ffb81d32e4992b4d85f759821ebe60d, type: 3}
+  initialPoolSize: 5
+--- !u!4 &1134867300
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134867298}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1294162774
 GameObject:
   m_ObjectHideFlags: 0
@@ -2170,12 +2261,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1295767348}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1166.118, y: 722.34955, z: -193.81712}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 103.12757, y: 118.38136, z: -176.69939}
+  m_LocalScale: {x: 0.911681, y: 0.911681, z: 0.911681}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1685799729}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1295767350
 MonoBehaviour:
@@ -2692,6 +2783,8 @@ RectTransform:
   - {fileID: 1681611640}
   - {fileID: 37128574}
   - {fileID: 2025585805}
+  - {fileID: 1809537590}
+  - {fileID: 1295767349}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -2839,12 +2932,12 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1809537587}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -960.00006, y: -540.171, z: 0}
+  m_LocalScale: {x: 0.911681, y: 0.911681, z: 0.911681}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1685799729}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1885560433
 PrefabInstance:
@@ -3282,6 +3375,6 @@ SceneRoots:
   - {fileID: 1076852952}
   - {fileID: 1378900907}
   - {fileID: 1945354364}
-  - {fileID: 1809537590}
-  - {fileID: 1295767349}
   - {fileID: 1685799729}
+  - {fileID: 1134867300}
+  - {fileID: 773818649}

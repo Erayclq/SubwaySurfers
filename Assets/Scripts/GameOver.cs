@@ -10,7 +10,6 @@ public class GameOver : MonoBehaviour
             gameOverPanel.SetActive(true);
         }
     }
-
     public void Restart()
     {
         GoldCounterText.goldCounter = 0;

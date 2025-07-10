@@ -5,6 +5,6 @@ public class GoldMovement : MonoBehaviour
 {
     void Update()
     {
-        transform.DORotate(new Vector3(0, 360, 0), 2f, RotateMode.LocalAxisAdd).SetLoops(-1);
+        transform.Rotate(new Vector3(0,120*Time.deltaTime,0), Space.Self);
     }
 }

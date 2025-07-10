@@ -6,9 +6,6 @@ public class EndlessRoad : MonoBehaviour
     {
         if (other.transform.tag == "Player")
         {
-            // transform.DOMove(new Vector3(0, 0.05f, 24.97879f* 2f), 0.2f);
-            //transform.position += new Vector3(0, 0.05f, 24.82975f);
-            //roadSegment.GetComponent<Renderer>().bounds.size.z * 3f;
             transform.position += Vector3.forward * 24.97879f * 3f;
         }
     }

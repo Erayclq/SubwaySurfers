@@ -1,15 +1,19 @@
 using UnityEngine;
-using DG.Tweening;
 public class Gold : MonoBehaviour
 {
+    private ObjectPool pool;
+
+    void Awake()
+    {
+        pool = GameObject.Find("GoldPool")
+                       .GetComponent<ObjectPool>();
+        if (pool == null) Debug.LogError("GoldPool bulunamadı!");
+    }
+
     void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.tag == "Player")
-        {
-            Debug.Log("Gold Toplandi.");
-            GoldCounterText.goldCounter++;
-            transform.DOKill();
-            Destroy(gameObject);
-        }
+        GoldCounterText.goldCounter++;
+
+        pool.ReturnToPool(gameObject);
     }
 }
