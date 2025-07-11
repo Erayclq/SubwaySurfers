@@ -3284,15 +3284,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3670810741433172293, guid: 6b13ae99d27070641b226a945369eea9, type: 3}
       propertyPath: duration
-      value: 80
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3670810741433172293, guid: 6b13ae99d27070641b226a945369eea9, type: 3}
       propertyPath: jumpPower
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3670810741433172293, guid: 6b13ae99d27070641b226a945369eea9, type: 3}
       propertyPath: jumpDistance
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 4399921498902126498, guid: 6b13ae99d27070641b226a945369eea9, type: 3}
       propertyPath: m_Name
