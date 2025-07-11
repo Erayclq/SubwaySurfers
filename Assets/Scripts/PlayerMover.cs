@@ -4,6 +4,7 @@ using System;
 
 public class PlayerMover : MonoBehaviour
 {
+    Animator playerAnim;
     //---------------------------------------------------------------------------------
     // İleri Gitme ayarları
     //---------------------------------------------------------------------------------
@@ -23,18 +24,26 @@ public class PlayerMover : MonoBehaviour
     private int currentLane = 1;
     private Tween slideTween;
     private Tween jumpTween;
+    //---------------------------------------------------------------------------------
+    void Start()
+    {
+        playerAnim = transform.GetComponent<Animator>();
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.A))
         {
+            playerAnim.SetTrigger("RunRight");
             SlideHorizontal(-1);
         }
         if (Input.GetKeyDown(KeyCode.D))
         {
+            playerAnim.SetTrigger("RunLeft");
             SlideHorizontal(+1);
         }
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            playerAnim.SetTrigger("Jump_Up");
             jumper();
         }
     }
@@ -44,15 +53,13 @@ public class PlayerMover : MonoBehaviour
     }
     private void jumper()//Zıplamayı sağlar
     {
-        if (transform.position.y == 0.5) // sadece yerdeyken zıplayabilir player
+        if (transform.position.y == 0) // sadece yerdeyken zıplayabilir player
         {
             jumpTween?.Kill();
             // Hedef pozisyon = şu anki + ileri yönde forwardDistance
             Vector3 endPos = transform.position + transform.forward * jumpDistance;
-            // DOJump: (hedef, zıplama yüksekliği, zıplama sayısı, toplam süre)
-            jumpTween = transform
-                .DOJump(endPos, jumpPower, numberOfJumps, duration)
-                .SetEase(Ease.Linear);
+
+            jumpTween = transform.DOJump(endPos, jumpPower, numberOfJumps, duration).SetEase(Ease.Linear);
         }
     }
     void SlideHorizontal(int direction)//Sağ ve Sola gitme
@@ -68,4 +75,13 @@ public class PlayerMover : MonoBehaviour
         // Sadece X ekseninde kay
         slideTween = transform.DOMoveX(targetX, slideTime).SetEase(Ease.InOutQuad);
     }
+
+    void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.tag == "Obstacle")
+        {
+            playerAnim.SetBool("WallCrash", true);
+        }
+    }
+
 }
