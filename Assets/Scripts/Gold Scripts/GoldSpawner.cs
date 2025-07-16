@@ -31,15 +31,15 @@ public class GoldSpawner : MonoBehaviour
 
     void SpawnGold()
     {
-        //k oordinatlarında X değeri
+        // Koordinatlarında X değeri
         float worldX = Random.Range(minX, maxX);
         // Spawner’ın Z pozisyonuna eklenen Z değeri
         float worldZ = transform.position.z + Random.Range(minZ, maxZ);
 
-        // 3) Spawn pozisyonunu oluştur
+        // Spawn pozisyonunu oluştur
         Vector3 spawnPos = new Vector3(worldX, yOffset, worldZ);
 
-        // 4) Havuzdan nesneyi al
+        // Havuzdan nesneyi al
         goldPool.getFromPool(spawnPos, Quaternion.identity);
     }
 

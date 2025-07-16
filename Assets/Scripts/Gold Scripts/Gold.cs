@@ -12,6 +12,7 @@ public class Gold : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
+        if(other.gameObject.tag == "Player")
         GoldCounterText.goldCounter++;
 
         pool.ReturnToPool(gameObject);
