@@ -1,4 +1,4 @@
-using Unity.VisualScripting;
+using System.Collections;
 using UnityEngine;
 
 public class Obstacle : MonoBehaviour
@@ -13,6 +13,13 @@ public class Obstacle : MonoBehaviour
     void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.tag == "Player")
-            collision.gameObject.SetActive(false);
+                                            //   collision.gameObject.SetActive(false);
+         StartCoroutine(PlayerDisable(collision.gameObject));
     }
+    IEnumerator PlayerDisable(GameObject player)
+    {
+        yield return new WaitForSeconds(1.3f);
+            player.gameObject.SetActive(false);
+    }
+
 }

@@ -28,6 +28,7 @@ public class PlayerMover : MonoBehaviour
     void Start()
     {
         playerAnim = transform.GetComponent<Animator>();
+        playerAnim.SetBool("WallCrash", false);
     }
     void Update()
     {
@@ -78,8 +79,9 @@ public class PlayerMover : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.tag == "Obstacle")
+        if (collision.gameObject.tag == "Engel")
         {
+            forwardSpeed = 0;
             playerAnim.SetBool("WallCrash", true);
         }
     }
