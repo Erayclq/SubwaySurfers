@@ -7,7 +7,6 @@ public class GameOverPanelAnimations : MonoBehaviour
     public RectTransform goldText;
     public RectTransform goldImage;
 
-
     [SerializeField] float duration = 1f;
     public RectTransform backGround;
     public RectTransform GameOverText;

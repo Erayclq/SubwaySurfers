@@ -9,10 +9,14 @@ public class SpawnObstacles : MonoBehaviour
     public float timeBetweenSpawn = 2f;
     private float spawnTimer;
 
-    [Header("Alan Ayarları")]
+    [Header("Alan Ayarlari")]
     public float minX = -1.5f, maxX = 1.5f;
     public float minZ = 5f, maxZ = 15f;
     public float yOffset = 0f;
+
+    /*  [Header("Folder")]
+        public Transform obstaclesContainer;
+    */
 
     void Start()
     {
@@ -44,6 +48,7 @@ public class SpawnObstacles : MonoBehaviour
 
         // Seçilen havuzdan al
         chosenPool.getFromPool(spawnPos, Quaternion.identity);
+        
     }
 
 }
