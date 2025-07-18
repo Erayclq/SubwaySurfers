@@ -25,6 +25,11 @@ public class PlayerMover : MonoBehaviour
     private Tween slideTween;
     private Tween jumpTween;
     //---------------------------------------------------------------------------------
+    [Header("Mobile Swipe Settings")]
+    [SerializeField] float minSwipeDistance = 50f; // px cinsinden eşiği deneyerek ayarla
+    private Vector2 startTouchPos;
+    private bool swipeHandled;
+    //---------------------------------------------------------------------------------
     void Start()
     {
         playerAnim = transform.GetComponent<Animator>();
@@ -32,20 +37,46 @@ public class PlayerMover : MonoBehaviour
     }
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.A))
+        if (Input.touchCount > 0)
         {
-            playerAnim.SetTrigger("RunRight");
-            SlideHorizontal(-1);
-        }
-        if (Input.GetKeyDown(KeyCode.D))
-        {
-            playerAnim.SetTrigger("RunLeft");
-            SlideHorizontal(+1);
-        }
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            playerAnim.SetTrigger("Jump_Up");
-            jumper();
+            Touch t = Input.GetTouch(0);
+            switch (t.phase)
+            {
+                case TouchPhase.Began:
+                    startTouchPos = t.position;
+                    swipeHandled = false;
+                    break;
+
+                case TouchPhase.Ended:
+                    if (swipeHandled) break;
+
+                    Vector2 diff = t.position - startTouchPos;
+
+                    if (Mathf.Abs(diff.x) > minSwipeDistance && Mathf.Abs(diff.x) > Mathf.Abs(diff.y))
+                    {
+                        if (diff.x > 0)
+                        {
+                            // Sağa kaydırma
+                            playerAnim.SetTrigger("RunLeft");
+                            SlideHorizontal(+1);
+                        }
+                        else
+                        {
+                            // Sola kaydırma
+                            playerAnim.SetTrigger("RunRight");
+                            SlideHorizontal(-1);
+                        }
+                        swipeHandled = true;
+                    }
+
+                    else if (diff.y > minSwipeDistance && Mathf.Abs(diff.y) > Mathf.Abs(diff.x))
+                    {
+                        playerAnim.SetTrigger("Jump_Up");
+                        jumper();
+                        swipeHandled = true;
+                    }
+                    break;
+            }
         }
     }
     void FixedUpdate()// Ileri harket.
@@ -85,5 +116,4 @@ public class PlayerMover : MonoBehaviour
             playerAnim.SetBool("WallCrash", true);
         }
     }
-
 }
